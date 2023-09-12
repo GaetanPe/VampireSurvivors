@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject settingsMenu;
     public void PlayGame()
     {
         SceneManager.LoadScene("SampleScene");
@@ -12,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsMenu()
     {
-        SceneManager.LoadScene("SettingsMenuScene");
+        settingsMenu.SetActive(true);
     }
 
     public void Exit ()
