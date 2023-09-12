@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] protected int HPmax;
     protected int HP;
     [SerializeField] protected GameObject[] Hearts;
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Vector3 lastInput;
 
@@ -35,6 +37,10 @@ public class Player : MonoBehaviour
         if (!isAlive()) return;
 
         Move();
+        Flip(rb.velocity.x);
+        float PlayerVelocityX = Mathf.Abs(rb.velocity.x);
+        float PlayerVelocityZ = Mathf.Abs(rb.velocity.z);
+        animator.SetFloat("Speed", PlayerVelocityX + PlayerVelocityZ);
     }
 
     private void GetInput()
@@ -93,5 +99,18 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void Flip(float velocityX)
+    {
+        if(velocityX>0.1f)
+        {
+            spriteRenderer.flipX= false;
+        }
+        else if(velocityX < -0.1f)
+        {
+            spriteRenderer.flipX= true;
+        }
+        
     }
 }
