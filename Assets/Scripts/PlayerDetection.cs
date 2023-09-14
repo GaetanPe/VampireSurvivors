@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDetection : MonoBehaviour
 {
@@ -6,9 +7,16 @@ public class PlayerDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider character){
         if (character.gameObject.CompareTag("Player"))
-        { 
+        {
+            Time.timeScale = 0;
             canvas.SetActive(true);
         }
+    }
+
+    public void MenutButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     private void OnTriggerExit(Collider character)

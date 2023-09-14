@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
 
     private Vector3 lastInput;
 
+    //modif
+    public GameOverDetection GameOverScreen;
+    //
+
     void Awake()
     {
         HP = HPmax;
@@ -78,6 +82,9 @@ public class Player : MonoBehaviour
         lastInput = Vector3.zero;
         Destroy(sprite.gameObject);
         StartCoroutine(WaitAndReload());
+        //Modif
+        GameOverScreen.Setup();
+        //
     }
 
     private void UpdateLifeBar()
