@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] protected GameObject[] Hearts;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioHeal;
 
     private Vector3 lastInput;
 
@@ -72,6 +74,7 @@ public class Player : MonoBehaviour
 
     public void Heal(int heal)
     {
+        audioSource.PlayOneShot(audioHeal);
         HP += heal;
         if (HP > HPmax) HP= HPmax;
         UpdateLifeBar();

@@ -9,5 +9,6 @@ public class Loot_Health : Loot
     {
         player.Heal(healValue);
         Destroy(gameObject);
+
     }
 }
