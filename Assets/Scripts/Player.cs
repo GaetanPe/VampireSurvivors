@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioHeal;
+    [SerializeField] private AudioClip audioHurt;
 
     private Vector3 lastInput;
 
@@ -66,6 +67,7 @@ public class Player : MonoBehaviour
     public void Hurt(int damages)
     {
         HP -= damages;
+        audioSource.PlayOneShot(audioHurt);
 
         UpdateLifeBar();
 

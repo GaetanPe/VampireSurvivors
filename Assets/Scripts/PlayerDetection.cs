@@ -4,12 +4,15 @@ using UnityEngine.SceneManagement;
 public class PlayerDetection : MonoBehaviour
 {
     public GameObject canvas;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip victory;
 
     private void OnTriggerEnter(Collider character){
         if (character.gameObject.CompareTag("Player"))
         {
             Time.timeScale = 0;
             canvas.SetActive(true);
+            audioSource.PlayOneShot(victory);
         }
     }
 

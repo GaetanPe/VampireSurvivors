@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverDetection : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip gameOver;
     public void Setup()
     {
         gameObject.SetActive(true);
         Time.timeScale = 0;
+        audioSource.PlayOneShot(gameOver);
     }
 
     public void RestartButton()

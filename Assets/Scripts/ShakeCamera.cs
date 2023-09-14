@@ -6,6 +6,7 @@ public class ShakeCamera : MonoBehaviour
     public bool start = false;
     public AnimationCurve curve;
     public float duration = 1;
+    [SerializeField] Player player;
 
     public void shake()
     {
@@ -26,7 +27,7 @@ public class ShakeCamera : MonoBehaviour
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < duration && player.isAlive())
         {
             elapsedTime += Time.deltaTime;
             float strength = curve.Evaluate(elapsedTime / duration);
