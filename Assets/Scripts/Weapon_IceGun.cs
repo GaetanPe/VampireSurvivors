@@ -5,6 +5,9 @@ using UnityEngine;
 public class Weapon_IceGun : Weapon
 {
     [SerializeField] private float range;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
+
     private Enemy target;
     public override void TryToShoot()
     {
@@ -19,6 +22,7 @@ public class Weapon_IceGun : Weapon
         lastShot = Time.time;
         GameObject newAttack = Instantiate(prefab, transform.position, Quaternion.identity);
         newAttack.transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
+        audioSource.PlayOneShot(sound);
     }
 
     void OnDrawGizmos()

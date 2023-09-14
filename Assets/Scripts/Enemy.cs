@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float cooldown;
     protected float lastAttack;
 
-
+    private ScoreSystem score;
     private Player player;
 
     void Awake()
@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreSystem>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         EnemyManager.Instance.AddNewEnemy(this);
     }
@@ -88,7 +89,11 @@ public class Enemy : MonoBehaviour
     {
         HP -= damages;
 
-        if (HP <= 0) Die();
+        if (HP <= 0)
+        {
+            score.SetScore();
+            Die();
+        }
         else anim.SetTrigger("Hit");
     }
 
