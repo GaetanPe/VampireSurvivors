@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     //modif
     public GameOverDetection GameOverScreen;
+    public ShakeCamera mainCamera;
     //
 
     void Awake()
@@ -67,7 +68,12 @@ public class Player : MonoBehaviour
         UpdateLifeBar();
 
         if (HP <= 0) Die();
-        else Debug.Log("Hit!");
+        else
+        {
+            Debug.Log("Hit!");
+            mainCamera.shake();
+        }
+        
     }
 
     public void Heal(int heal)
