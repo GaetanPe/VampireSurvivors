@@ -6625,7 +6625,6 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
@@ -6714,27 +6713,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 321950185}
   posOffset: {x: 0, y: 10, z: 0}
---- !u!95 &963194230
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1df0eda7d87bce04b97b1bfcd936a1cf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6752,37 +6730,55 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.47788876
-      outSlope: 0.47788876
-      tangentMode: 34
+      time: 0.0072266906
+      value: 0.00055760145
+      inSlope: 0.17326789
+      outSlope: 0.17326789
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.13538465
     - serializedVersion: 3
-      time: 0.30918148
-      value: 0.14775436
-      inSlope: 0.13271135
-      outSlope: 0.13271135
-      tangentMode: 34
+      time: 0.13192627
+      value: 0.20087859
+      inSlope: 0.034791388
+      outSlope: 0.034791388
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.81837505
-      value: 0.039568022
-      inSlope: -0.13731082
-      outSlope: -0.13731082
-      tangentMode: 34
+      time: 0.17179559
+      value: -0.06580399
+      inSlope: -0.054727662
+      outSlope: -0.054727662
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.4798889
-      value: -0.0015487671
-      inSlope: -0.062155597
-      outSlope: -0.062155597
+      time: 0.29561585
+      value: -0.003133174
+      inSlope: 0.06304097
+      outSlope: 0.06304097
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5681364
+      value: -0.0013952199
+      inSlope: -0.0066627315
+      outSlope: -0.0066627315
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.96490014
+      value: -0.0021766685
+      inSlope: -0.0019695563
+      outSlope: -0.0019695563
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
