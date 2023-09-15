@@ -7,7 +7,7 @@ public class ScoreSystem : MonoBehaviour
 {
     Enemy enemy;
     [SerializeField] TextMeshProUGUI scoreTxt;
-    private float currentScore;
+    public float currentScore;
 
     void Start()
     {
