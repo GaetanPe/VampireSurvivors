@@ -22,6 +22,13 @@ public class Player : MonoBehaviour
     //modif
     public GameOverDetection GameOverScreen;
     public ShakeCamera mainCamera;
+
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 5f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+    [SerializeField] private TrailRenderer tr;
     //
 
     void Awake()
@@ -33,9 +40,19 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (!isAlive()) return;
+        //Modif
+        if (isDashing) return;
+        //
 
         //Correction de l'ordre d'affichage du sprite
         sprite.sortingOrder = (int)(-transform.position.z*100);
+
+        //Modif
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+        //
 
         GetInput();
     }
@@ -43,6 +60,9 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         if (!isAlive()) return;
+        //Modif
+        if (isDashing) return;
+        //
 
         Move();
         Flip(rb.velocity.x);
@@ -63,6 +83,21 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector3(lastInput.x * defaultSpeed, 0, lastInput.z * defaultSpeed);
     }
+
+    //Modif dash
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        rb.velocity = new Vector3(lastInput.x * dashingPower, 0f, lastInput.z * dashingPower);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+    //
 
     public void Hurt(int damages)
     {
